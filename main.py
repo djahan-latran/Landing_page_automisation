@@ -4,35 +4,25 @@ from page_content import PageContent
 class ProgramExecutor:
 
     def execute_program(self):
+        """create au content pages as csv file"""
 
-        # create au content pages as csv file
-        list_instance = TownList("listen/au_städte.txt")
+        # import and read file
+        list_instance = TownList("listen/au_städte_test.txt")
         au_town_list = list_instance.create_list()
+
+        # create page content instance
         au_page_content = PageContent(town_list=au_town_list)
 
-        au_page_content.arch_vis_content()
-        au_page_content.export_csv(csv_name="au_arch_vis")
+        # create the desired content and export as csv file
+        au_page_content.arch_vis_content(csv_name_input="au_archvis_test")
+        au_page_content.three_d_vis_content(csv_name_input="au_3dvis")
+        au_page_content.rendering_content(csv_name_input="au_render")
+        au_page_content.three_d_animation_content(csv_name_input="au_3danim_test")
+        au_page_content.immo_marketing_content(csv_name_input="au_immo_markt")
+        au_page_content.product_vis_content(csv_name_input="au_productvis")
+        au_page_content.vfx_content(csv_name_input="au_vfx")
+        au_page_content.three_d_modeling_content(csv_name_input="au_3dmodel")
 
-        au_page_content.three_d_vis_content()
-        au_page_content.export_csv(csv_name="au_3d_vis")
-
-        au_page_content.rendering_content()
-        au_page_content.export_csv(csv_name="au_render")
-
-        au_page_content.three_d_animation_content()
-        au_page_content.export_csv(csv_name="au_3d_anim")
-
-        au_page_content.immo_marketing_content()
-        au_page_content.export_csv(csv_name="au_immo")
-
-        au_page_content.product_vis_content()
-        au_page_content.export_csv(csv_name="au_pro_vis")
-
-        au_page_content.vfx_content()
-        au_page_content.export_csv(csv_name="au_vfx")
-
-        au_page_content.three_d_modeling_content()
-        au_page_content.export_csv(csv_name="au_3d_model")
 
 if __name__ == "__main__":
     program = ProgramExecutor()
